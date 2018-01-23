@@ -1,0 +1,20 @@
+
+[android]
+  target = Google Inc.:Google APIs:23
+
+[maven_repositories]
+  central = https://repo1.maven.org/maven2
+
+
+
+return fetch(
+            "https://api.themoviedb.org/3/discover/movie?page=${safa}&sort_by=popularity.desc&api_key=2ee0d2186a62e8b0ec9def675e32e6f8"
+        )
+          .then(response => response.json())
+          .then(responseJson => {
+            this.setState({ data: responseJson.results });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
